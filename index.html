@@ -28,10 +28,10 @@
 	<div class="slides">
 
 	<section>
-		<img src="img/eScience.png" height="100px" alt="eScience logo" align="middle">
-
+		<img src="img/2018-Meeting-web-banner-s.jpg">
+		<h3>Introduction to Diffusion:</h3>
 		<h2>Model-driven diffusion MRI analysis </h2>
-		<br>
+		<img src="img/eScience.png" height="100px" alt="eScience logo" align="middle">
 		<p><a href="http://arokem.org">Ariel Rokem</a>,
 		<a href="http://escience.washington.edu">University of Washington eScience Institute</a> </p>
 		<p>  <small>Follow along at: https://arokem.github.io/ismrm2018models<t><a href=""></t></a></small></p>
@@ -101,22 +101,76 @@
 	</section>
 	<section>
 		<h2>Diffusion Tensor Model </h2>
-		<img src="img/dti_equation.png"> <br>
-		<img src="img/dti_equation2.png"> <br>
-		<img src="img/dti_equation3.png"> <br>
+		<p class="fragment">
+			$$
+			S(\theta) = S_0 e^{-b\theta^tQ\theta}
+			$$
+		</p>
 
+		<p class="fragment">
+			$$
+			\frac{S(\theta)}{S_0} = e^{-b\theta^tQ\theta}
+			$$
+		</p>
+
+		<p class="fragment">
+
+			$$
+			log[\frac{S(\theta)}{S_0}] = -b\theta^tQ\theta
+			$$
+
+		</p>
+
+		<p class="fragment"> => Fit as a linear model </p>
 		<div class="cite">
 			<a href="https://www.ncbi.nlm.nih.gov/pubmed/8130344">Basser et al. (1994)</a>
+			<a href=""> </a>
 		</div>
+	</section>
 
+	<section>
+		<h4>DTI statistics</h4>
+		<div class="fragment" style="position: absolute; left: 14px;">
+			<img src="img/tensor-stats1.png" height="400"  >
+			<div style="position: absolute; left: 75px; top: 420px;">
+				<small>Mean diffusivity</small>
+			</div>
+			<div style="position: absolute; left: -8px;">
+				<img src="img/md-scale.png" height="40" >
+			</div>
+			<div style="position: absolute; left: 222px; top:432px; ">
+				<img src="img/md-units.png" height="50" >
+			</div>
+		</div>
+		<div class="fragment fade-in" style="position: absolute; left: 7px;">
+			<img src="img/tensor-stats2.png" height="400"  >
 
+			<div style="position: absolute; left: 350px; top:432px; ">
+				<video width="200" autoplay loop>
+					<source src="./img/diffusion-fa-251.mov">
+			</div>
+
+			<div style="position: absolute; left: 350px; top: 420px;">
+				<small>Fractional anisotropy</small>
+			</div>
+
+		</div>
+		<div class="fragment fade-in" style="position: absolute; left: 0px;">
+			<img src="img/tensor-stats3.png" height="400"  >
+			<div style="position: absolute; left: 600px; top: 420px;">
+				<small>Principal diffusion direction</small>
+			</div>
+			<div style="position: absolute; left: 700px; top:432px; ">
+				<img src="img/axes.png" height="100" >
+			</div>
+		</div>
 	</section>
 
 
 	<section>
 		<h2>From phenomological to mechanistic</h2>
 		For example, changes in FA are associated with:
-		<p class="fragment">Demyleniation (<a href="https://www.ncbi.nlm.nih.gov/pubmed/8892217">Beualieu et al., 1996</a>)</p>
+		<p class="fragment">De-myleniation (<a href="https://www.ncbi.nlm.nih.gov/pubmed/8892217">Beualieu et al., 1996</a>)</p>
 		<p class="fragment">But also where there are crossing fibers (<a href="https://www.ncbi.nlm.nih.gov/pubmed/8946355">Pierpaoli and Basser, 1996</a>)</p>
 		<h2 class="fragment">Interpretation is ambiguous!</h2>
 		<h2 class="fragment">Parameters are "biomarkers"</h2>
@@ -124,9 +178,41 @@
 
 
 	<section>
+	<h2>More challenges</h2>
+
+
+	</section>
+
+	<section>
+		<h2>Extending DTI</h2>
+		
+
+	</section>
+
+	<section>
 		<h2>Mechanistic models</h2>
 		Signal is derived from a sum of components:
-		<img src="img/compartment_model.png">
+		<br>
+
+		<p class="fragment">
+			$$
+			\sum{f_i S_i}
+			$$
+		Where $f_i$ is a volume fraction and $S_i$ is a signal from that component
+		</p>
+	</section>
+
+	<section>
+		<h2>Free water DTI</h2>
+		$$
+
+		S(\theta) = f_w e^{-bD_w} + f_t e^{-b\theta^t Q \theta}
+
+		$$
+		<div class="cite">
+			<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4312191/">Koay et al. (2014)</a>
+			<a href="https://www.biorxiv.org/content/early/2017/02/15/108795">Neto-Henriques et al. (2017)</a>
+		</div>
 	</section>
 
 	<section>
@@ -150,9 +236,99 @@
 		<p class="fragment">Model accuracy</p>
 	</section>
 
+
+
+	<section>
+		<div style="position: absolute; left: 0px; top: 0px;">
+			<medium>Measurement #1</medium>
+		</div>
+		<div style="position: absolute; left: 0px; top: 100px;">
+			<img src="images/sig1.png" >
+		</div>
+		<div class="fragment">
+			<div style="position: absolute; left: 700px; top: 100px;">
+				<img src="images/sig2.png" >
+			</div>
+			<div style="position: absolute; left: 660px; top: 0px;">
+				<medium>Measurement #2</medium>
+			</div>
+		</div>
+		<div class = "fragment fade-in" style="position: absolute">
+			<canvas id="arrow-test-retest" width="1000" height="1000">
+			</canvas>
+			<script>
+				context = document.getElementById('arrow-test-retest').getContext("2d");
+				context.beginPath();
+				canvas_arrow_two_heads(context, 300, 150, 650, 150);
+				context.lineWidth = 2;
+				context.stroke();
+			</script>
+		</div>
+		<div class="fragment fade-in" style="position:absolute; left: 310px; top:100px">
+			Test-retest reliability
+		</div>
+
+		<div class = "fragment fade-in" style="position: absolute">
+			<canvas id="arrow-cv1" width="1000" height="1000">
+			</canvas>
+			<script>
+				context = document.getElementById('arrow-cv1').getContext("2d");
+				context.beginPath();
+				canvas_arrow_two_heads(context, 310, 400, 410, 400);
+				context.lineWidth = 2;
+				context.stroke();
+			</script>
+		</div>
+		<div class="fragment fade-in" style="position:absolute; left: 430px; top:395px">
+			Model
+		</div>
+		<div class = "fragment fade-in" style="position: absolute">
+			<canvas id="arrow-cv2" width="1000" height="1000">
+			</canvas>
+			<script>
+				context = document.getElementById('arrow-cv2').getContext("2d");
+				context.beginPath();
+				canvas_arrow_two_heads(context, 550, 400, 650, 400);
+				context.lineWidth = 2;
+				context.stroke();
+			</script>
+		</div>
+
+		<div class="fragment fade-in" style="position:absolute; left: 350px; top:450px">
+			Cross-validation
+		</div>
+	</section>
+	<section>
+		<div>
+			<img src="images/rrmse1.png" >
+		</div>
+
+		<div class="fragment">
+			<img src="images/rrmse2.png" >
+		</div>
+
+		<div style="position: absolute; left: 500px; top: 650px;" >
+			<small>Rokem et al. (2015)</small>
+		</div>
+	</section>
+
+
+
+		<section>
+		Software for model-driven dMRI
+
+		DIPY: Diffusion Imaging in Python
+
+		<a href="http://dmipy.readthedocs.io/en/latest/">dmipy</a>
+	</section>
+
 	<section>
 		<h2>Summary and conclusions</h2>
 		<p class="fragment"></p>
+	</section>
+
+	<section>
+
 	</section>
 
 
@@ -201,12 +377,17 @@
 				center: true,
 
 				transition: 'fade', // none/fade/slide/convex/concave/zoom
+                math: {
+                    mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+                    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+                },
 
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/math/math.js', async: true }
 				]
 			});
 		</script>
