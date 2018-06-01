@@ -40,7 +40,7 @@
 
 	<section>
 		<h2>What is the goal of diffusion MRI?</h2>
-		<p class="fragment">To make inferences about connectivity</p>
+		<p class="fragment">To make inferences about brain connectivity</p>
 		<p class="fragment">To make inferences about tissue properties</p>
 		<p class="fragment">To make inferences about differences between groups</p>
 		<p class="fragment">To make inferences about individual brains</p>
@@ -59,8 +59,8 @@
 
 	<section>
 		<h2>Classes of models</h2>
-		<p class="fragment"><em>Phenomenological</em> models</p>
-		<p class="fragment"><em>Mechanistic</em> models</p>
+		<p class="fragment">1. <em>Phenomenological</em> models</p>
+		<p class="fragment">2. <em>Mechanistic</em> models</p>
 		<div class="cite">
 			<a href="https://plato.stanford.edu/archives/fall2012/entries/models-science/">Stanford Encyclopedia of Philosophy</a>
 		</div>
@@ -168,7 +168,7 @@
 
 
 	<section>
-		<h2>From phenomological to mechanistic</h2>
+		<h2>Inferences about the underlying mechanisms</h2>
 		For example, changes in FA are associated with:
 		<p class="fragment">De-myleniation (<a href="https://www.ncbi.nlm.nih.gov/pubmed/8892217">Beualieu et al., 1996</a>)</p>
 		<p class="fragment">But also where there are crossing fibers (<a href="https://www.ncbi.nlm.nih.gov/pubmed/8946355">Pierpaoli and Basser, 1996</a>)</p>
@@ -179,26 +179,35 @@
 
 	<section>
 	<h2>More challenges</h2>
-
+	
 
 	</section>
 
 	<section>
 		<h2>Extending DTI</h2>
-		
+
 
 	</section>
 
 	<section>
 		<h2>Mechanistic models</h2>
-		Signal is derived from a sum of components:
+		<h3>Often mixture models</h3>
+
+		<p class="fragment">Signal is derived from a sum of components:</p>
 		<br>
 
 		<p class="fragment">
 			$$
-			\sum{f_i S_i}
+			S(\theta) = f_1 S_1(\theta) + f_2 S_2(\theta) + ... + f_n S_n(\theta)
 			$$
+		</p>
+		<p class="fragment">
 		Where $f_i$ is a volume fraction and $S_i$ is a signal from that component
+		</p>
+		<p class="fragment">
+			$$
+			\sum{f_i} = 1
+			$$
 		</p>
 	</section>
 
@@ -209,6 +218,17 @@
 		S(\theta) = f_w e^{-bD_w} + f_t e^{-b\theta^t Q \theta}
 
 		$$
+
+		<img class="fragment" src="img/sphere.png" height="300">
+		<div class="fragment" style="position: absolute; left: 400px; top: 280px;"> + </div>
+	 	<img class="fragment" src="img/zeppelin.png" height="300">
+
+		<p class="fragment">
+			$$
+			f_w = 1 - f_t
+			$$
+		</p>
+
 		<div class="cite">
 			<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4312191/">Koay et al. (2014)</a>
 			<a href="https://www.biorxiv.org/content/early/2017/02/15/108795">Neto-Henriques et al. (2017)</a>
