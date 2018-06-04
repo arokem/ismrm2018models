@@ -132,10 +132,10 @@
 
 		</p>
 
-		<p class="fragment"> => Fit as a linear model </p>
+		<p class="fragment"> => Fit as a (weighted) linear model </p>
 		<div class="cite">
-			<a href="https://www.ncbi.nlm.nih.gov/pubmed/8130344">Basser et al. (1994)</a>
-			<a href=""> </a>
+			<a href="https://www.ncbi.nlm.nih.gov/pubmed/8130344">Basser et al. (1994a)</a>
+			<a href="https://www.ncbi.nlm.nih.gov/pubmed/8019776">Basser et al. (1994b) </a>
 		</div>
 	</section>
 
@@ -180,11 +180,22 @@
 
 	<section>
 		<h2>Inferences about the underlying mechanisms</h2>
-		For example, changes in FA are associated with:
-		<p class="fragment">De-myleniation (<a href="https://www.ncbi.nlm.nih.gov/pubmed/8892217">Beualieu et al., 1996</a>)</p>
+		Changes in FA and MD are associated with:
+		<p class="fragment">Fiber diameter</p>
+		<p class="fragment">Fiber density</p>
+		<p class="fragment">Membrane permeability</p>
+		<p class="fragment">Demylenation</p>
+		<p class="fragemtn"></p>
 		<p class="fragment">But also where there are crossing fibers (<a href="https://www.ncbi.nlm.nih.gov/pubmed/8946355">Pierpaoli and Basser, 1996</a>)</p>
-		<h2 class="fragment">Interpretation is ambiguous!</h2>
-		<h2 class="fragment">Parameters can serve as "biomarkers"</h2>
+		<h3 class="fragment"><p class="fragment strike">"White matter integrity"</p></h3>
+		<h3 class="fragment">But parameters can serve as "biomarkers"!</h3>
+
+		<div class="cite">
+			<a href="https://www.ncbi.nlm.nih.gov/pubmed/12489094">Beaulieu et al. (2002)</a>
+			<a href="https://www.ncbi.nlm.nih.gov/pubmed/22846632">Jones et al. (2013)</a>
+
+		</div>
+
 	</section>
 
 
@@ -212,12 +223,46 @@
 
 	<section>
 	<h2>More challenges</h2>
+		<img src="img/nongaussian.png">
 
-
+	<div class="cite">
+		<a href="https://www.ncbi.nlm.nih.gov/pubmed/21601404">De Santis et al. (2011)</a>
+	</div>
 	</section>
 
 	<section>
-		<h2>Extending DTI</h2>
+		<h2>Extending DTI: Diffusion Kurtosis</h2>
+		<p class="fragment">
+		$$
+		log[\frac{S(\theta, b)}{S_0}] = -bD(\theta) + \frac{1}{6} b^2 D (\theta)^2 K (\theta)
+		$$
+		</p>
+		<p class="fragment">
+		$$
+		D(\theta)= \sum_{i=1}^{3}\sum_{j=1}^{3}\theta_{i}\theta_{j}Q_{ij} = \theta^t Q \theta
+		$$
+		</p>
+		<p class="fragment">
+		$$
+		K(\theta)=\frac{MD^{2}}{D(\theta)^{2}} \sum_{i=1}^{3}\sum_{j=1}^{3}\sum_{k=1}^{3}\sum_{l=1}^{3}\theta_{i}\theta_{j}\theta_{k}\theta_{l}W_{ijkl}
+		$$
+		</p>
+		<p class="fragment">
+			W is a 4th order tensor
+			<br>
+			81 elements, but only 15 are independent
+
+		</p>
+		<div class="cite">
+			<a href="https://www.ncbi.nlm.nih.gov/pubmed/15906300">Jensen et al. (2005)</a>
+		</div>
+	</section>
+
+	<section>
+		<h2>DKI</h2>
+
+		Additional statistics
+
 
 
 	</section>
@@ -306,9 +351,11 @@
 		<h2>Sparse Fascicle Models</h2>
 		<li class="fragment">Goal is to provide useful cues to tractography</li>
 		<li class="fragment">Signal is modeled as a mixture of individual fascicle signals</li>
-		<li class="fragment">Estimation often with constraints</li>
+		<li class="fragment">Estimation often done with constraints</li>
+		<li class="fragment">Non-negative weights, regularization</li>
 		<div class="cite">
 			Frank (<a href="https://onlinelibrary.wiley.com/doi/full/10.1002/mrm.1125">2001</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/mrm.10156">2002</a>)
+			<a href="">Dell'Acqua (2007)</a>
 			<a href="">Behrens et al. (2007)</a>
 			<a href="">Tournier et al. (2007)</a>
 		</div>
@@ -335,7 +382,7 @@
 	</section>
 
 	<section>
-		Fieremans et al. (2011) propose recasting DKI parametes as indicative of mechanism
+		Fieremans et al. (2011) propose recasting DKI parameters as indicative of mechanism
 		<p class="fragment"></p>
 		<div class="cite">
 			<a href="https://www.ncbi.nlm.nih.gov/pubmed/21699989">Fieremans et al. (2011)</a>
